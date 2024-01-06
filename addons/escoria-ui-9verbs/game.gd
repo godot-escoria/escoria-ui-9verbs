@@ -311,6 +311,10 @@ func hide_ui():
 
 
 func show_ui():
+	# only show ui if the main menu is not open
+	if get_node(main_menu).visible:
+		return
+	
 	$ui/Control.show()
 	verbs_menu.show()
 	if ESCProjectSettingsManager.get_setting(ESCProjectSettingsManager.ENABLE_ROOM_SELECTOR):
